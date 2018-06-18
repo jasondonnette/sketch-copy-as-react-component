@@ -1,6 +1,6 @@
 {
   "name": "sketch-copy-as-react",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "engines": {
     "sketch": ">=3.0"
   },
@@ -8,6 +8,7 @@
     "name": "sketch-copy-as-react",
     "manifest": "src/manifest.json",
     "main": "plugin.sketchplugin",
+    "shouldKeepAround": true,
     "assets": [
       "assets/**/*"
     ]

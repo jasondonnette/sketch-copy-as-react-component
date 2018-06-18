@@ -4,13 +4,13 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "my-command",
-      "identifier": "my-command-identifier",
-      "script": "./my-command.js"
+      "name": "Copy Functional Component",
+      "identifier": "copy-functional-component",
+      "script": "./copy-functional-component.js"
     }
   ],
   "menu": {
-    "title": "foobar",
-    "items": ["my-command-identifier"]
+    "title": "React",
+    "items": ["copy-functional-component"]
   }
 }
