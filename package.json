@@ -1,6 +1,6 @@
 {
   "name": "sketch-copy-as-react-component",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Generate a React components from Sketch with a keyboard shortcut",
   "repository": {
     "type": "git",
