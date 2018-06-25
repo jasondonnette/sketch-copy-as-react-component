@@ -1,11 +1,11 @@
 {
-  "name": "sketch-copy-as-react",
+  "name": "sketch-copy-as-react-component",
   "version": "0.1.2",
   "engines": {
     "sketch": ">=3.0"
   },
   "skpm": {
-    "name": "sketch-copy-as-react",
+    "name": "sketch-copy-as-react-component",
     "manifest": "src/manifest.json",
     "main": "plugin.sketchplugin",
     "shouldKeepAround": true,
