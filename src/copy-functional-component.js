@@ -3,35 +3,18 @@ import UI from 'sketch/ui';
 import fs from '@skpm/fs';
 import { sketchSvgToReact } from './svgToReact';
 
-var readTextFromFile = function(path) {
-  return NSString.stringWithContentsOfFile_encoding_error(
-    path,
-    NSUTF8StringEncoding,
-    null,
-  );
-};
-
-export function isFileExist(source) {
-  const manager = NSFileManager.defaultManager();
-  return manager.fileExistsAtPath(source);
-}
-
-export function removeFile(path) {
-  const manager = NSFileManager.defaultManager();
-  manager.removeItemAtPath_error(path, null);
-}
-
-export default function(context) {
-  // const { document } = context;
+export default function() {
   const document = Document.getSelectedDocument();
   const selection = document.selectedLayers;
   const page = document.selectedPage;
   const { layers, isEmpty } = selection;
 
   if (isEmpty) {
-    UI.message('No layers selected.');
+    UI.message('No layers selected');
     return;
   }
+
+  UI.message('Copying component');
 
   const newLayers = [];
   selection.forEach(layer => {
@@ -58,48 +41,20 @@ export default function(context) {
   });
 
   group.remove();
-  // const fileName = `~/Documents/Sketch\ Exports/react-components/React\ copy\ component.svg`;
   const fileName = `${targetFolder}/${name}.svg`;
-  // const fileExists = isFileExist(fileName);
-  // console.log(fileName, fileExists);
-
-  // const file = readTextFromFile(fileName);
-  // removeFile(fileName);
-  // console.log(file);
-
-  // const resolvedPathname = NSString.stringByResolvingSymlinksInPath(fileName);
   const svgString = fs.readFileSync(fileName, { encoding: 'utf8' });
 
   // Delete the file
   try {
     fs.unlinkSync(fileName);
-  } catch (e) {}
+  } catch (e) {
+    UI.message('There was an error copying the React component');
+  }
 
   const result = sketchSvgToReact(svgString);
 
   const pasteboard = NSPasteboard.generalPasteboard();
   pasteboard.clearContents();
   pasteboard.writeObjects([result]);
-
-  // const artboard = new Artboard({ name: 'test', layers: newLayers });
-
-  // const group = new sketch.Group({
-  //   layers,
-  //   parent: layers[0].parent,
-  // });
-
-  // const svgExporter = SketchSVGExporter.alloc().init();
-  // // const layer = context.selection.firstObject();
-  // const svgData = svgExporter.exportLayers([group.immutableModelObject()]);
-
-  // // console.log(svgData);
-  // const svgString = NSString.alloc().initWithData_encoding(
-  //   svgData,
-  //   NSUTF8StringEncoding,
-  // );
-  // console.log(svgString);
-  // const result = sketchSvgToReact(svgString);
-  // group.sketchObject.ungroup();
-
-  // console.log(result);
+  UI.message('React component copied to clipboard');
 }
