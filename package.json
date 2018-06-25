@@ -2,7 +2,10 @@
   "name": "sketch-copy-as-react-component",
   "version": "0.2.0",
   "description": "Generate a React components from Sketch with a keyboard shortcut",
-  "repository": "https://github.com/jasondonnette/sketch-copy-as-react-component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasondonnette/sketch-copy-as-react-component"
+  },
   "engines": {
     "sketch": ">=3.0"
   },
