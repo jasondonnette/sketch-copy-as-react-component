@@ -1,0 +1,10 @@
+---
+extends:
+  - plugin:import/warnings
+  - plugin:import/errors
+  - sketch
+parserOptions:
+  ecmaVersion: 2017
+  sourceType: module
+  ecmaFeatures:
+  jsx: true

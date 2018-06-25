@@ -6,7 +6,8 @@
     {
       "name": "Copy Functional Component",
       "identifier": "copy-functional-component",
-      "script": "./copy-functional-component.js"
+      "script": "./copy-functional-component.js",
+      "shortcut": "cmd option r"
     }
   ],
   "menu": {

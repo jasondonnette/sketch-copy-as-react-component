@@ -17,10 +17,35 @@
     "build": "skpm-build",
     "watch": "skpm-build --watch",
     "start": "skpm-build --watch --run",
-    "postinstall": "npm run build && skpm-link"
+    "postinstall": "npm run build && skpm-link",
+    "test": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "devDependencies": {
-    "@skpm/builder": "^0.5.2"
+    "@babel/core": "^7.0.0-beta.51",
+    "@skpm/babel-preset": "^0.1.1",
+    "@skpm/builder": "^0.5.2",
+    "babel-core": "^7.0.0-0",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.2.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-sketch": "^0.2.4",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.1",
+    "jest": "^23.1.0",
+    "prettier": "^1.13.5"
   },
-  "author": "Jason Donnette <jason@tiller.io>"
+  "author": "Jason Donnette <jason@tiller.io>",
+  "dependencies": {
+    "@skpm/fs": "^0.1.2"
+  }
 }
