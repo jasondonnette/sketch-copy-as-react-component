@@ -1,11 +1,13 @@
+import * as prettier from 'prettier/standalone';
+import * as babylon from 'prettier/parser-babylon';
+
 export function reactWrapper(code) {
   return `import React from 'react';
 
-const Icon = ({ style }) => (
-  ${code}
-);
-  
-export default Icon;`;
+const Icon = ({ style }) => ${code}
+
+export default Icon;
+`;
 }
 
 export function sketchSvgToReact(svg) {
@@ -16,7 +18,8 @@ export function sketchSvgToReact(svg) {
       'version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"',
       '',
     ],
-    ['^<!--[sS\n]*?-->$\n', ''],
+    [/<!--(.*?)-->(\n)?/, ''],
+    [/<\?(.*?)\?>(\n)?/, ''],
     ['<title>(.*?)</title>\n', ''],
     [`xml version="1.0" encoding="UTF-8"\n`, ''],
     ['<desc>Created with Sketch.</desc>\n', ''],
@@ -49,5 +52,12 @@ export function sketchSvgToReact(svg) {
     newSvg = newSvg.replace(regExp, reg[1]);
   });
 
-  return reactWrapper(newSvg);
+  newSvg = prettier.format(reactWrapper(newSvg), {
+    parser: 'babylon',
+    singleQuote: true,
+    trailingComma: 'all',
+    plugins: [babylon],
+  });
+
+  return newSvg;
 }
