@@ -3,17 +3,14 @@
   "version": "1.0.0",
   "license": "MIT",
   "description": "Generate a React components from Sketch with a keyboard shortcut",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jasondonnette/sketch-copy-as-react-component"
-  },
+  "repository": "https://github.com/jasondonnette/sketch-copy-as-react-component",
   "engines": {
     "sketch": ">=3.0"
   },
   "skpm": {
     "name": "Copy as React Component (JSX)",
     "manifest": "src/manifest.json",
-    "main": "Copy as React Component.sketchplugin",
+    "main": "plugin.sketchplugin",
     "shouldKeepAround": true,
     "assets": [
       "assets/**/*"
