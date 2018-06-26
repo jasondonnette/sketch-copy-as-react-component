@@ -4,7 +4,7 @@ Copy as React Component is a [Sketch](https://www.sketchapp.com) plugin that all
 
 ## Installation
 
-1.  [Download](https://github.com/jasondonnette/sketch-copy-as-react-component/releases/download/v1.0.0/Copy.as.React.Component.sketchplugin.zip) and unzip
+1.  [Download](https://github.com/jasondonnette/sketch-copy-as-react-component/releases/download/v1.2.0/plugin.sketchplugin.zip) and unzip
 2.  Double-click the **plugin.sketchplugin** file
 
 ## Instructions
