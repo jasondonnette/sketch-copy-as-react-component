@@ -1,4 +1,4 @@
-import sketch, { Document, Group, Page, Artboard, Rectangle } from 'sketch/dom';
+import sketch, { Document, Group } from 'sketch/dom';
 import UI from 'sketch/ui';
 import fs from '@skpm/fs';
 import { sketchSvgToReact } from './svgToReact';
