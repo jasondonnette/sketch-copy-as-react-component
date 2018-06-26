@@ -4,14 +4,15 @@
   "icon": "icon.png",
   "commands": [
     {
-      "name": "Copy Component",
+      "name": "Copy as React Component",
       "identifier": "copy-functional-component",
       "script": "./copy-functional-component.js",
       "shortcut": "cmd option r"
     }
   ],
   "menu": {
-    "title": "React",
+    "title": "Copy as React Component",
+    "isRoot": true,
     "items": ["copy-functional-component"]
   }
 }
