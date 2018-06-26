@@ -21,7 +21,7 @@ export function sketchSvgToReact(svg) {
     [/<!--(.*?)-->(\n)?/, ''],
     [/<\?(.*?)\?>(\n)?/, ''],
     ['<title>(.*?)</title>\n', ''],
-    [`xml version="1.0" encoding="UTF-8"\n`, ''],
+    ['xml version="1.0" encoding="UTF-8"\n', ''],
     ['<desc>Created with Sketch.</desc>\n', ''],
     ['<defs></defs>\n', ''],
     ['-d', 'D'],

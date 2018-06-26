@@ -7,7 +7,7 @@ export default function() {
   const document = Document.getSelectedDocument();
   const selection = document.selectedLayers;
   const page = document.selectedPage;
-  const { layers, isEmpty } = selection;
+  const { isEmpty } = selection;
 
   if (isEmpty) {
     UI.message('No layers selected');
@@ -34,13 +34,14 @@ export default function() {
 
   const targetFolder = '/tmp/react-components';
 
-  const exported = sketch.export(group, {
+  sketch.export(group, {
     output: targetFolder,
     formats: 'svg',
     compact: true,
   });
 
   group.remove();
+
   const fileName = `${targetFolder}/${name}.svg`;
   const svgString = fs.readFileSync(fileName, { encoding: 'utf8' });
 
@@ -53,8 +54,10 @@ export default function() {
 
   const result = sketchSvgToReact(svgString);
 
+  // Copy to clipboard
   const pasteboard = NSPasteboard.generalPasteboard();
   pasteboard.clearContents();
   pasteboard.writeObjects([result]);
+
   UI.message('React component copied to clipboard');
 }
