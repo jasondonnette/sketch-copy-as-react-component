@@ -11,7 +11,7 @@ Copy as React Component is a [Sketch](https://www.sketchapp.com) plugin that all
 
 ## How does it work?
 
-![demo](https://user-images.githubusercontent.com/823765/41881002-fadcf788-7895-11e8-8183-09a047caab0f.gif)
+![demo](https://user-images.githubusercontent.com/823765/41882004-5835928c-789b-11e8-906a-fb908fd84f55.gif)
 
 Copy as React Component uses the same output from _Right-Click > Copy SVG Code_, then transforms it into JSX and prettifies it with [Prettier](https://github.com/prettier/prettier).
 
