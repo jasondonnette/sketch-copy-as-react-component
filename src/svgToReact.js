@@ -1,7 +1,7 @@
 import * as prettier from 'prettier/standalone';
 import * as babylon from 'prettier/parser-babylon';
 
-export function reactWrapper(code) {
+export function addReactWrapper(code) {
   return `import React from 'react';
 
 const Icon = ({ style }) => ${code}
@@ -35,15 +35,7 @@ export function sketchSvgToReact(svg) {
     ['-o', 'O'],
     ['-l', 'L'],
     ['-l', 'L'],
-
-    // Removes id's
-    [/ id="[^"]*"/, ''],
-
-    // Switch from 4 to 2 spaces
-    ['    ', '  '],
-
-    // Add 2 spaces indent
-    [/\n/g, '\n  '],
+    [/ id="[^"]*"/, ''], // Removes id's
   ];
 
   let newSvg = svg;
@@ -52,12 +44,14 @@ export function sketchSvgToReact(svg) {
     newSvg = newSvg.replace(regExp, reg[1]);
   });
 
-  newSvg = prettier.format(reactWrapper(newSvg), {
+  const reactCode = addReactWrapper(newSvg);
+
+  const prettfiedResult = prettier.format(reactCode, {
     parser: 'babylon',
     singleQuote: true,
     trailingComma: 'all',
     plugins: [babylon],
   });
 
-  return newSvg;
+  return prettfiedResult;
 }

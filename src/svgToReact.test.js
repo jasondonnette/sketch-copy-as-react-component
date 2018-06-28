@@ -1,4 +1,4 @@
-import { sketchSvgToReact, reactWrapper } from './svgToReact';
+import { sketchSvgToReact, addReactWrapper } from './svgToReact';
 
 describe('sketchSvgToReact', () => {
   it('should prettify the output', () => {
@@ -14,7 +14,7 @@ describe('sketchSvgToReact', () => {
       </g>
     </svg>`),
     ).toBe(
-      reactWrapper(`(
+      addReactWrapper(`(
   <svg viewBox="0 0 870 644" style={style} style={style}>
     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g transform="translate(0.000000, 1.000000)">
@@ -33,12 +33,12 @@ describe('sketchSvgToReact', () => {
   });
   it('should update svg tags to React', () => {
     expect(sketchSvgToReact('<path stroke-width="1"></path>;')).toBe(
-      reactWrapper('<path strokeWidth="1" />;'),
+      addReactWrapper('<path strokeWidth="1" />;'),
     );
   });
   it('should remove xml meta tags', () => {
     expect(
       sketchSvgToReact(`<svg><?xml version="1.0" encoding="UTF-8"?>\n</svg>`),
-    ).toBe(reactWrapper('<svg />;'));
+    ).toBe(addReactWrapper('<svg />;'));
   });
 });

@@ -1,10 +1,28 @@
----
-extends:
-  - plugin:import/warnings
-  - plugin:import/errors
-  - sketch
-parserOptions:
-  ecmaVersion: 2017
-  sourceType: module
-  ecmaFeatures:
-  jsx: true
+{
+  "root": true,
+  "extends": ["airbnb-base", "sketch", "plugin:import/errors", "prettier"],
+  "plugins": ["no-not-accumulator-reassign"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "no-not-accumulator-reassign/no-not-accumulator-reassign": [
+      2,
+      ["reduce"],
+      {
+        "props": true
+      }
+    ]
+  },
+  "settings": {
+    "import/core-modules": [
+      "sketch",
+      "sketch/async",
+      "sketch/data-supplier",
+      "sketch/dom",
+      "sketch/settings",
+      "sketch/ui"
+    ]
+  }
+}
